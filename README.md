@@ -7,3 +7,7 @@ Published under GPL v3
 Redesigned in Sketchup 2014.
 
 ## Work in progress...
+
+## Extruder
+[Extruder - Front](http://pix.slic.it/p/qg)
+[Extruder - Back](http://pix.slic.it/p/qh)
