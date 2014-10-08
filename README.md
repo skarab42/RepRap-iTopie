@@ -9,5 +9,5 @@ Redesigned in Sketchup 2014.
 ## Work in progress...
 
 ## Extruder
-![Extruder - Front](http://pix.slic.it/p/qg)
-![Extruder - Back](http://pix.slic.it/p/qh)
+<img src="http://pix.slic.it/p/qg" alt="Extruder - Front" style="width:100px;">
+<img src="http://pix.slic.it/p/qh" alt="Extruder - Back" style="width:400px;">
