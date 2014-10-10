@@ -8,4 +8,4 @@ Redesigned in Sketchup 2014.
 
 ## Work in progress...
 
-Wade L3K Extruder - [Wade L3K Extruder](https://github.com/lautr3k/Wade-L3K)
+[Wade L3K Extruder](https://github.com/lautr3k/Wade-L3K)
