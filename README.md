@@ -3,5 +3,7 @@ Here you will find all the sources of the [RepRap iTopie](http://reprap.org/wiki
 
 <img src="http://pix.slic.it/p/1bd" width="700px" />
 
-## Looking for an extruder
-Try the [Wade L3K Extruder](https://github.com/lautr3k/Wade-L3K).
+## Looking for an extruder? Try the [Wade L3K Extruder](https://github.com/lautr3k/Wade-L3K).
+<img src="http://pix.slic.it/p/s1" width="200px"/>
+<img src="http://pix.slic.it/p/s2" width="200px"/>
+<img src="http://pix.slic.it/p/s3" width="200px"/>
