@@ -68,6 +68,10 @@ z_plate_pocket_margin          = [138, 0, undef, 0];    // pockets margin [top, 
 y_rod_pocket_size              = [8, 20];               // pockets size   [width, height]
 y_rod_pocket_spacing           = undef;                 // pockets spacing (axis to axis) [undef = auto]
 
+// y rod holes
+y_rod_holes_radius             = 1.5;                   // y rod screws holes radius
+y_rod_holes_margin             = 4;                     // y rod screws margin (from y rod pocket border)
+
 // z motor mount
 z_motor_mount_margin           = 8;                     // between the "motor" and the "z_plate" (border to border)
 z_motor_mount_spacing          = undef;                 // between the two motor mount (axis to axis) [undef = auto]

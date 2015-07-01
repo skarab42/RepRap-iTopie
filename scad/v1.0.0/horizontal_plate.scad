@@ -42,14 +42,27 @@ module z_plate_pockets() {
         square(z_plate_pocket_size);
 }
 
+// y rod holes
+module y_rod_holes() {
+    center = y_rod_pocket_size[1] / 2;
+    translate([-y_rod_holes_margin, center, 0])
+        circle(y_rod_holes_radius);
+    translate([y_rod_pocket_size[0] + y_rod_holes_margin, center, 0])
+        circle(y_rod_holes_radius);
+}
+
 // y rod pockets
 module _y_rod_pockets() {
     center  = (horizontal_plate_width - y_rod_pocket_size[0]) / 2;
     spacing = _y_rod_pocket_spacing / 2;
-    translate([center - spacing, 0, 0])
+    translate([center - spacing, 0, 0]) {
         square(y_rod_pocket_size);
-    translate([center + spacing, 0, 0])
+        y_rod_holes();
+    }
+    translate([center + spacing, 0, 0]) {
         square(y_rod_pocket_size);
+        y_rod_holes();
+    }
 }
 
 module y_rod_pockets() {
