@@ -1,7 +1,7 @@
 TO DO
 -----
 - Y Bed
-- Ronded corner on rear triangle
+- Rounded corner on rear triangle
 - Extruded version (complete build)
   
 DONE
