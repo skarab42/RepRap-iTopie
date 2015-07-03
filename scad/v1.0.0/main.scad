@@ -7,9 +7,15 @@
 // @author  Sébastien Mischler <skarab>
 // @author  http://www.onlfait.ch
 //
-// @upddate 2015-06-27 at 10:00 <skarab> first write
-//include <config.scad>
-use <horizontal_plate.scad>
+// @upddate 2015-06-27 <skarab> first write
+// @update  2015-07-02 <skarab> add: vertical plate
+// @upddate 2015-07-03 <skarab> add: feet
+include <config.scad>
+use     <horizontal_plate.scad>
+use     <vertical_plate.scad>
 
 // build
-horizontal_plate();
+translate([-horizontal_plate_width - 10, 10, 0])
+    horizontal_plate();
+translate([10, 10, 0])
+    vertical_plate();

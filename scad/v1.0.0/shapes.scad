@@ -7,7 +7,7 @@
 // @author  Sébastien Mischler <skarab>
 // @author  http://www.onlfait.ch
 //
-// @upddate 2015-06-27 at 10:00 <skarab> first write
+// @upddate 2015-06-27 <skarab> first write
 module corner(radius = 0) {
     render() difference() {
         square([radius, radius]);
@@ -40,12 +40,12 @@ module rounded_square(width, height, radius = 0, corner_radius = [0, 0, 0, 0]) {
     }
 }
 
-module y_mount(width, height, radius) {
+module y_mount(width, height, corner_radius) {
     render() union() {    
-        rounded_square(width, height, corner_radius = [radius[0], radius[0], 0, 0]);
+        rounded_square(width, height, corner_radius = [corner_radius[0], corner_radius[1], 0, 0]);
         translate([width, 0, 0])
-            corner(radius[1]);
+            corner(corner_radius[2]);
         rotate([0, 180, 0])
-            corner(radius[1]);
+            corner(corner_radius[3]);
     }
 }

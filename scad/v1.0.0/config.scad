@@ -7,11 +7,17 @@
 // @author  Sébastien Mischler <skarab>
 // @author  http://www.onlfait.ch
 //
-// @upddate 2015-06-27 at 10:00 <skarab> first write
+// @upddate 2015-06-27 <skarab> first write
+// @update  2015-07-02 <skarab> add: vertical plate
+// @upddate 2015-07-03 <skarab> add: feet
 $fn = 50;
 
 // sheet thickness (raw material)
 sheet_thickness                = 16;                    // raw sheet thickness
+
+// ---------------------------------------------------------------- //
+// ------------------- horizontal plate --------------------------- //
+// ---------------------------------------------------------------- //
 
 // horizontal plate
 horizontal_plate_width         = 390;                   // outer width
@@ -23,8 +29,9 @@ horizontal_plate_inner_corners = [30, 30, 30, 30];      // inner corners radius 
 // y idler mount
 y_idler_mount_width            = 44;                    // idler mount width
 y_idler_mount_height           = 24;                    // idler mount height
-y_idler_mount_radius           = [5, 10];               // corners radius [in, out]
+y_idler_mount_corners          = [5, 5, 10, 10];        // corners radius [topLeft, topRight, bottomRight, bottoLeft]
 
+// y idler pocket
 y_idler_pocket_width           = undef;                 // idler pocket width [undef = auto]
 y_idler_pocket_height          = y_idler_mount_height;  // idler pocket height
 
@@ -32,15 +39,16 @@ y_idler_pocket_height          = y_idler_mount_height;  // idler pocket height
 // y motor mount
 y_motor_mount_width            = 50;                    // motor mount width
 y_motor_mount_height           = 36;                    // motor mount width
-y_motor_mount_radius           = [5, 10];               // corners radius [in, out]
+y_motor_mount_corners          = [5, 5, 10, 10];        // corners radius [topLeft, topRight, bottomRight, bottoLeft]
 y_motor_mount_angle            = 8;                     // motor rotation angle (belt tensionner) 0 = disabled
 
 // y endstop mount
 y_endstop_mount_width          = 25;                    // endstop mount width
 y_endstop_mount_height         = 16.4;                  // endstop mount width
-y_endstop_mount_radius         = [8.2, 10];             // corners radius [in, out]
+y_endstop_mount_corners        = [8.2, 8.2, 10, 10];    // corners radius [topLeft, topRight, bottomRight, bottoLeft]
 y_endstop_mount_position       = 82;                    // from the frame top border to the endstop top border
 
+// y endstop screws holes
 y_endstop_holes_radius         = 1.5;                   // endstop screws holes radius
 y_endstop_holes_spacing        = 9.5;                   // between the two endstop screws (axis to axis)
 
@@ -81,6 +89,28 @@ z_rod_pocket_spacing           = 17;                    // between the "motor" a
 z_rod_pocket_radius            = 4;                     // z smoothe rod radius
 
 // ---------------------------------------------------------------- //
+// ------------------- vertical plate ----------------------------- //
+// ---------------------------------------------------------------- //
+
+// logo
+dxf_logo                     = "logo.dxf";              // path to DXF logo
+
+// vertical plate
+vertical_plate_width         = horizontal_plate_width;  // outer width
+vertical_plate_height        = horizontal_plate_height; // outer height
+vertical_plate_borders       = [60, 60, undef, 60];     // borders weight       [top, right, bottom, left]
+vertical_plate_outer_corners = [10, 10, 10, 10];        // outer corners radius [topLeft, topRight, bottomRight, bottoLeft]
+vertical_plate_inner_corners = [10, 10, 10, 10];        // inner corners radius [topLeft, topRight, bottomRight, bottoLeft]
+
+// ---------------------------------------------------------------- //
+// ------------------------- feet --------------------------------- //
+// ---------------------------------------------------------------- //
+feet_width                   = horizontal_plate_width;  // feet width...
+feet_height                  = 60;                      // feet height...
+feet_corners                 = [10, 10, 10, 10];        // corners radius [leftOut, leftIn, rightIn, rightOut]
+feet_gap_height              = 40;                      // gap height ?
+
+// ---------------------------------------------------------------- //
 // --- CHANGE NOTHING BELOW, UNLESS YOU KNOW WHAT YOU ARE DOING --- //
 // ---------------------------------------------------------------- //
 
@@ -99,3 +129,22 @@ _z_motor_mount_spacing = z_motor_mount_spacing ? z_motor_mount_spacing : horizon
 
 // y idler pocket auto width
 _y_idler_pocket_width = y_idler_pocket_width ? y_idler_pocket_width : y_idler_mount_width - 20;
+
+// ---------------------------------------------------------------- //
+
+// vertical plate computed borders [top+bottom, left+right]
+vertical_plate_computed_borders = [vertical_plate_borders[0], vertical_plate_borders[1] + vertical_plate_borders[3]];
+
+// vertical plate inner size
+vertical_plate_inner_width  = vertical_plate_width - vertical_plate_computed_borders[1];
+vertical_plate_inner_height = vertical_plate_height - vertical_plate_computed_borders[0];
+
+// total feet height
+total_feet_height = feet_height + sheet_thickness;
+
+// triangle height
+triangle_width  = z_plate_pocket_margin[0];
+triangle_height = vertical_plate_inner_height - total_feet_height;
+triangle_angle  = ceil((atan(triangle_width / triangle_height) / 4) * 3);
+triangle_margin = [20, 20, undef, 20];
+    

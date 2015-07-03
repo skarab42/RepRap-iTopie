@@ -7,9 +7,10 @@
 // @author  Sébastien Mischler <skarab>
 // @author  http://www.onlfait.ch
 //
-// @upddate 2015-06-27 at 10:00 <skarab> first write
+// @upddate 2015-06-27 <skarab> first write
 include <config.scad>
 use     <shapes.scad>
+use     <feet.scad>
 
 // z triangle screws holes
 module z_triangle_holes() {
@@ -150,12 +151,14 @@ module z_motor_mount() {
 
 // y idler mount
 module y_idler_mount() {
+    top_radius    = _y_idler_pocket_width / 2;
+    bottom_radius = (y_idler_mount_width - _y_idler_pocket_width) / 4;
     render() difference() {
         translate([(horizontal_plate_width - y_idler_mount_width) / 2, horizontal_plate_borders[2], 0])
-            y_mount(y_idler_mount_width, y_idler_mount_height, y_idler_mount_radius);
+            y_mount(y_idler_mount_width, y_idler_mount_height, y_idler_mount_corners);
         translate([(horizontal_plate_width - _y_idler_pocket_width) / 2, horizontal_plate_borders[2] + y_idler_mount_height, 0])
             mirror([0, 1, 0])
-                y_mount(_y_idler_pocket_width, y_idler_pocket_height, [_y_idler_pocket_width / 2, (y_idler_mount_width - _y_idler_pocket_width) / 4]);
+                y_mount(_y_idler_pocket_width, y_idler_pocket_height, [top_radius, top_radius, bottom_radius, bottom_radius]);
     }
 }
 
@@ -163,7 +166,7 @@ module y_idler_mount() {
 module y_motor_mount() {
     translate([(horizontal_plate_width - y_motor_mount_width) / 2, horizontal_plate_height - horizontal_plate_borders[0], 0])
         mirror([0, 1, 0])
-            y_mount(y_motor_mount_width, y_motor_mount_height, y_motor_mount_radius);
+            y_mount(y_motor_mount_width, y_motor_mount_height, y_motor_mount_corners);
 }
 
 module y_motor_pockets() {
@@ -185,7 +188,7 @@ module y_endstop_mount() {
     translate([horizontal_plate_borders[3], horizontal_plate_height - y_endstop_mount_position, 0]) {
         render() difference() {
             rotate([0, 0, -90])
-                y_mount(y_endstop_mount_height, y_endstop_mount_width, y_endstop_mount_radius);
+                y_mount(y_endstop_mount_height, y_endstop_mount_width, y_endstop_mount_corners);
             translate([7, -holes_center, 0])
                 circle(y_endstop_holes_radius);
             translate([7 + y_endstop_holes_spacing, -holes_center, 0])
@@ -211,4 +214,6 @@ module horizontal_plate() {
         feet_pockets();
         z_motor_mount();
     }
+    translate([0, -feet_height - sheet_thickness - 20, 0])
+        feet();
 }
