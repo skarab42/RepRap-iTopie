@@ -1,7 +1,7 @@
 TO DO
 -----
-- Y Bed
-- Extruded version (complete build)
+- **Y Bed**
+- **Extruded version (complete build)**
 - ~~Rounded corner on rear triangle~~
 - ~~Horizontal plate~~
 - ~~Vertical plate~~
