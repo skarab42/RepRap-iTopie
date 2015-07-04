@@ -9,7 +9,7 @@
 //
 // @upddate 2015-06-27 <skarab> first write
 // @update  2015-07-02 <skarab> add: vertical plate
-// @upddate 2015-07-03 <skarab> add: feet
+// @upddate 2015-07-03 <skarab> add: feet and triangle
 $fn = 50;
 
 // sheet thickness (raw material)
@@ -111,6 +111,16 @@ feet_corners                 = [10, 10, 10, 10];        // corners radius [leftO
 feet_gap_height              = 40;                      // gap height ?
 
 // ---------------------------------------------------------------- //
+// ----------------------- triangle ------------------------------- //
+// ---------------------------------------------------------------- //
+triangle_width               = undef;                   // rear triangle width         [undef = auto]
+triangle_height              = undef;                   // rear triangle height        [undef = auto]
+triangle_angle               = undef;                   // rear triangle angle         [undef = auto]
+triangle_margin              = [20, 20, undef, 20];     // rear triangle margin        [top, right, bottom, left]
+triangle_radius              = 10;                      // rear triangle corner radius [undef = auto]
+
+
+// ---------------------------------------------------------------- //
 // --- CHANGE NOTHING BELOW, UNLESS YOU KNOW WHAT YOU ARE DOING --- //
 // ---------------------------------------------------------------- //
 
@@ -142,9 +152,13 @@ vertical_plate_inner_height = vertical_plate_height - vertical_plate_computed_bo
 // total feet height
 total_feet_height = feet_height + sheet_thickness;
 
-// triangle height
-triangle_width  = z_plate_pocket_margin[0];
-triangle_height = vertical_plate_inner_height - total_feet_height;
-triangle_angle  = ceil((atan(triangle_width / triangle_height) / 4) * 3);
-triangle_margin = [20, 20, undef, 20];
-    
+// triangles auto size
+triangle_max_width  = z_plate_pocket_margin[0];
+triangle_max_height = vertical_plate_inner_height - total_feet_height;
+
+//triangle_width  = (triangle_width > triangle_max_width)   ? triangle_max_width  : triangle_width;
+//triangle_height = (triangle_height > triangle_max_height) ? triangle_max_height : triangle_height;
+
+_triangle_width  = triangle_width && triangle_width <= triangle_max_width  ? triangle_width  : triangle_max_width;
+_triangle_height = triangle_height && triangle_height <= triangle_max_height ? triangle_height : triangle_max_height;
+_triangle_angle  = triangle_angle  ? triangle_angle  : ceil((atan(_triangle_width / _triangle_height) / 4) * 3);
