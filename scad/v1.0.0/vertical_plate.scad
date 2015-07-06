@@ -8,10 +8,32 @@
 // @author  http://www.onlfait.ch
 //
 // @upddate 2015-07-02 <skarab> first write
+// @upddate 2015-07-03 <skarab> add feet
+// @upddate 2015-07-06 <skarab> add missed holes
 include <config.scad>
 use     <shapes.scad>
 use     <rear_triangle.scad>
 use     <feet.scad>
+
+// triangles screws holes
+module z_triangle_holes() {
+    half_pocket = feet_pocket_size[0] / 2;
+    min = 20 + half_pocket;
+    max = _triangle_height - feet_pocket_size[0] + half_pocket;
+    mid = (max - min) / 4;
+    
+    translate([0, min + mid, 0])
+        circle(z_triangle_holes_radius);
+    translate([0, max - mid, 0])
+        circle(z_triangle_holes_radius);
+}
+
+// z rod holder holes
+module z_rod_holder_holes() {
+    circle(z_rod_holder_holes_radius);
+    translate([z_rod_holder_holes_spacing, 0, 0])
+        circle(z_rod_holder_holes_radius);
+}
 
 // vertical base plate
 module vertical_base_plate() {
@@ -26,6 +48,18 @@ module vertical_base_plate() {
                 rear_triangle_pockets();
             translate([vertical_plate_width / 2, vertical_plate_height - (vertical_plate_borders[0] / 2) - total_feet_height, 0])
                 logo();
+            translate([vertical_plate_borders[3] / 2, 0, 0])
+                z_triangle_holes();
+            translate([vertical_plate_width - (vertical_plate_borders[1] / 2), 0, 0])
+                z_triangle_holes();
+            translate([0, vertical_plate_height - total_feet_height - z_rod_holder_holes_spacing, 0]) {
+                width  = (horizontal_plate_width - _z_motor_mount_spacing) / 2;
+                margin = width - z_rod_pocket_spacing + z_rod_holder_holes_margin[1];
+                translate([margin, 0, 0])
+                    z_rod_holder_holes();
+                translate([horizontal_plate_width - z_rod_holder_holes_spacing - margin, 0, 0])
+                    z_rod_holder_holes();
+            }
         }
     }
     rounded_square(z_plate_pocket_size[0], total_feet_height, corner_radius = [0, 0, feet_corners[1], feet_corners[0]]);

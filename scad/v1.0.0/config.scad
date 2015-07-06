@@ -12,11 +12,20 @@
 // @upddate 2015-07-03 <skarab> add: feet and triangle
 $fn = 50;
 
+// ---------------------------------------------------------------- //
+// horizontal plate ----------------------------------------------- //
+// ---------------------------------------------------------------- //
 // sheet thickness (raw material)
 sheet_thickness                = 16;                    // raw sheet thickness
 
 // ---------------------------------------------------------------- //
-// ------------------- horizontal plate --------------------------- //
+// shortcuts ------------------------------------------------------ //
+// ---------------------------------------------------------------- //
+m3_screw_radius                = 1.5;                   // M3 screw radius
+m4_screw_radius                = 2;                     // M4 screw radius
+
+// ---------------------------------------------------------------- //
+// horizontal plate ----------------------------------------------- //
 // ---------------------------------------------------------------- //
 
 // horizontal plate
@@ -35,12 +44,14 @@ y_idler_mount_corners          = [5, 5, 10, 10];        // corners radius [topLe
 y_idler_pocket_width           = undef;                 // idler pocket width [undef = auto]
 y_idler_pocket_height          = y_idler_mount_height;  // idler pocket height
 
-
 // y motor mount
 y_motor_mount_width            = 50;                    // motor mount width
 y_motor_mount_height           = 36;                    // motor mount width
 y_motor_mount_corners          = [5, 5, 10, 10];        // corners radius [topLeft, topRight, bottomRight, bottoLeft]
 y_motor_mount_angle            = 8;                     // motor rotation angle (belt tensionner) 0 = disabled
+
+// motor mounts
+motor_mount_holes_radius       = m3_screw_radius;       // motor screw holes radius
 
 // y endstop mount
 y_endstop_mount_width          = 25;                    // endstop mount width
@@ -49,15 +60,23 @@ y_endstop_mount_corners        = [8.2, 8.2, 10, 10];    // corners radius [topLe
 y_endstop_mount_position       = 82;                    // from the frame top border to the endstop top border
 
 // y endstop screws holes
-y_endstop_holes_radius         = 1.5;                   // endstop screws holes radius
+y_endstop_holes_radius         = m3_screw_radius;       // endstop screws holes radius
 y_endstop_holes_spacing        = 9.5;                   // between the two endstop screws (axis to axis)
+
+// y rod pockets
+y_rod_pocket_size              = [8, 20];               // pockets size   [width, height]
+y_rod_pocket_spacing           = undef;                 // pockets spacing (axis to axis) [undef = auto]
+
+// y rod holes
+y_rod_holes_radius             = m3_screw_radius;       // y rod screws holes radius
+y_rod_holes_margin             = 4;                     // y rod screws margin (from y rod pocket border)
 
 // feet pockets
 feet_pocket_size               = [20, sheet_thickness]; // pockets size   [width, height]
 feet_pocket_margin             = [10.5, 40, 10.5, 40];  // pockets margin [top, right, bottom, left]
 
 // feet holes
-feet_holes_radius              = 2;                     // feet screws holes radius
+feet_holes_radius              = m4_screw_radius;       // feet screws holes radius
 feet_holes_margin              = 10;                    // feet screws horizontal margin (for fine adjustement)
 
 // z triangle pockets
@@ -65,20 +84,12 @@ z_triangle_pocket_size         = [sheet_thickness, 20]; // pockets size   [width
 z_triangle_pocket_margin       = [63, 22, undef, 22];   // pockets margin [top, right, ---, left]
 
 // feet holes
-z_triangle_holes_radius        = 2;                     // z triangle screws holes radius
+z_triangle_holes_radius        = m4_screw_radius;       // z triangle screws holes radius
 z_triangle_holes_margin        = 20;                    // z triangle screws margin (from z triangle pocket border)
 
 // z plate pockets
 z_plate_pocket_size            = [40, sheet_thickness]; // pockets size   [width, height]
 z_plate_pocket_margin          = [138, 0, undef, 0];    // pockets margin [top, right, ---, left]        
-
-// y rod pockets
-y_rod_pocket_size              = [8, 20];               // pockets size   [width, height]
-y_rod_pocket_spacing           = undef;                 // pockets spacing (axis to axis) [undef = auto]
-
-// y rod holes
-y_rod_holes_radius             = 1.5;                   // y rod screws holes radius
-y_rod_holes_margin             = 4;                     // y rod screws margin (from y rod pocket border)
 
 // z motor mount
 z_motor_mount_margin           = 8;                     // between the "motor" and the "z_plate" (border to border)
@@ -88,8 +99,13 @@ z_motor_mount_spacing          = undef;                 // between the two motor
 z_rod_pocket_spacing           = 17;                    // between the "motor" and the "z rod" (axis to axis)
 z_rod_pocket_radius            = 4;                     // z smoothe rod radius
 
+// z rod top holder
+z_rod_holder_holes_radius      = m3_screw_radius;       // z rod top holder holes radius
+z_rod_holder_holes_margin      = [12, 6];               // [top, between the z rod and the first holder hole (axis to axis)]
+z_rod_holder_holes_spacing     = 20;                    // between the two holder holes (axis to axis)
+
 // ---------------------------------------------------------------- //
-// ------------------- vertical plate ----------------------------- //
+// vertical plate ------------------------------------------------- //
 // ---------------------------------------------------------------- //
 
 // logo
@@ -103,7 +119,7 @@ vertical_plate_outer_corners = [10, 10, 10, 10];        // outer corners radius 
 vertical_plate_inner_corners = [10, 10, 10, 10];        // inner corners radius [topLeft, topRight, bottomRight, bottoLeft]
 
 // ---------------------------------------------------------------- //
-// ------------------------- feet --------------------------------- //
+// feet ----------------------------------------------------------- //
 // ---------------------------------------------------------------- //
 feet_width                   = horizontal_plate_width;  // feet width...
 feet_height                  = 60;                      // feet height...
@@ -111,7 +127,7 @@ feet_corners                 = [10, 10, 10, 10];        // corners radius [leftO
 feet_gap_height              = 40;                      // gap height ?
 
 // ---------------------------------------------------------------- //
-// ----------------------- triangle ------------------------------- //
+// triangle ------------------------------------------------------- //
 // ---------------------------------------------------------------- //
 triangle_width               = undef;                   // rear triangle width         [undef = auto]
 triangle_height              = undef;                   // rear triangle height        [undef = auto]
@@ -119,6 +135,14 @@ triangle_angle               = undef;                   // rear triangle angle  
 triangle_margin              = [20, 20, undef, 20];     // rear triangle margin        [top, right, bottom, left]
 triangle_radius              = 10;                      // rear triangle corner radius [undef = auto]
 
+// ---------------------------------------------------------------- //
+// bed ------------------------------------------------------------ //
+// ---------------------------------------------------------------- //
+bed_holes_spacing            = [209, 209];              // bed screws holes spacing (axis to axis) [MK2/3 = [x:209, y:209]]
+bed_corner_radius            = 5.5;                     // bed corners radius
+bed_margin                   = [10, 10];                // bed outer margin [x, y]
+bed_holes_radius             = m3_screw_radius;         // bed screw radius
+bed_triangle_offset          = 20;                      // bed triangle inner offset
 
 // ---------------------------------------------------------------- //
 // --- CHANGE NOTHING BELOW, UNLESS YOU KNOW WHAT YOU ARE DOING --- //
@@ -152,13 +176,21 @@ vertical_plate_inner_height = vertical_plate_height - vertical_plate_computed_bo
 // total feet height
 total_feet_height = feet_height + sheet_thickness;
 
-// triangles auto size
+// triangles max size
 triangle_max_width  = z_plate_pocket_margin[0];
 triangle_max_height = vertical_plate_inner_height - total_feet_height;
 
-//triangle_width  = (triangle_width > triangle_max_width)   ? triangle_max_width  : triangle_width;
-//triangle_height = (triangle_height > triangle_max_height) ? triangle_max_height : triangle_height;
-
+// triangles auto size
 _triangle_width  = triangle_width && triangle_width <= triangle_max_width  ? triangle_width  : triangle_max_width;
 _triangle_height = triangle_height && triangle_height <= triangle_max_height ? triangle_height : triangle_max_height;
 _triangle_angle  = triangle_angle  ? triangle_angle  : ceil((atan(_triangle_width / _triangle_height) / 4) * 3);
+
+// bed auto size
+bed_width  = bed_holes_spacing[0] + (bed_corner_radius * 2);
+bed_height = bed_holes_spacing[1] + (bed_corner_radius * 2);
+
+bed_half_width  = bed_width  / 2;
+bed_half_height = bed_height / 2;
+
+bed_base_width  = bed_width  - (bed_margin[0] * 2);
+bed_base_height = bed_height - (bed_margin[1] * 2);
