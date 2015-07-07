@@ -8,9 +8,13 @@
 // @author  http://www.onlfait.ch
 //
 // @upddate 2015-06-27 <skarab> first write
+// @upddate 2015-07-03 <skarab> add feet
+// @upddate 2015-07-05 <skarab> add bed
 include <config.scad>
 use     <shapes.scad>
 use     <feet.scad>
+use     <bed.scad>
+
 
 // z triangle screws holes
 module z_triangle_holes() {
@@ -119,13 +123,13 @@ module horizontal_base_plate() {
 
 // motor mount & z rod pockets
 module motor_mount(pos = 0) {
-    circle(1.5);
+    circle(motor_mount_holes_radius);
     translate([31, 0, 0])
-        circle(1.5);
+        circle(motor_mount_holes_radius);
     translate([31, 31, 0])
-        circle(1.5);
+        circle(motor_mount_holes_radius);
     translate([0, 31, 0])
-        circle(1.5);
+        circle(motor_mount_holes_radius);
     translate([15.5, 15.5, 0]) {
         circle(12);
         // z rod pockets
@@ -216,4 +220,6 @@ module horizontal_plate() {
     }
     translate([0, -feet_height - sheet_thickness - 20, 0])
         feet();
+    translate([(horizontal_plate_width - bed_width) / 2, (horizontal_plate_height - bed_height) / 2, 0])
+        bed();
 }
