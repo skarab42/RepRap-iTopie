@@ -2,7 +2,7 @@
 Here you will find all the sources files for the [RepRap iTopie](http://reprap.org/wiki/ITopie). The manual and other information is on the [RepRap wiki](http://reprap.org). 
 Thank you.
 
-<img src="http://pix.slic.it/p/1jq" width="700px" />
+<img src="http://pix.slic.it/p/4f5" width="700px" />
 
 <img src="http://reprap.org/mediawiki/images/7/71/ITopie_RepRap_14.jpg" width="230px"/>
 <img src="http://reprap.org/mediawiki/images/7/76/ITopie_RepRap_15.jpg" width="230px"/>
