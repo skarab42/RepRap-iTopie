@@ -83,7 +83,7 @@ if (output_mode == 4) {
         translate([0, -feet_height, -feet_connectors_margin[2] - feet_connectors_size[1]])
             feet();
     rotate([90, 0, 0])
-        translate([0, -feet_height, -vertical_plate_height + feet_connectors_margin[0]])
+        translate([0, -feet_height, -horizontal_plate_height + feet_connectors_margin[0]])
             feet();
     // triangles
     translate([triangle_connectors_margin[3], vertical_plate_y_position, 0]) {
