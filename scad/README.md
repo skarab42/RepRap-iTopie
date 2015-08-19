@@ -1,5 +1,5 @@
 # Highly customizable iTopie frame generator
-The [configuration file](https://github.com/lautr3k/RepRap-iTopie/blob/dev/scad/config.scad) contains about 80 variables (evilly commented) you can adjust for fine tuning (all will not be explained here).
+The [configuration file](https://github.com/lautr3k/RepRap-iTopie/blob/dev/scad/config.scad) contains about 80 variables (evilly commented) you can adjust for fine tuning (all will not be explained here). See the [build directory](https://github.com/lautr3k/RepRap-iTopie/tree/dev/build) for DXF merging/layering/cleaning tool.
 
 # Some basic examples
 ### Output mode
