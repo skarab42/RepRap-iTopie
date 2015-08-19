@@ -34,12 +34,12 @@ optional arguments:
 # Some basic examples
 `python build.py` or `python build.py --output_type 0` or `python build.py -t 0`
 
-<img src="http://pix.slic.it/p/4fm" title="output_type=0" width="600" />
+<img src="http://pix.slic.it/p/4fn" title="output_type=0" width="600" />
 
 `python build.py --output_type 1` or `python build.py -t 1`
 
-<img src="http://pix.slic.it/p/4fn" title="output_type=1" width="600" />
+<img src="http://pix.slic.it/p/4fo" title="output_type=1" width="600" />
 
 `python build.py --output_type 2` or `python build.py -t 2`
 
-<img src="http://pix.slic.it/p/4fo" title="output_type=2" width="600" />
+<img src="http://pix.slic.it/p/4fm" title="output_type=2" width="600" />
