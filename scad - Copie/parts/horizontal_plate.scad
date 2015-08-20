@@ -308,22 +308,13 @@ module horizontal_plate_2D() {
 
 // horizontal plate 3D
 module horizontal_plate_3D() {
-    offset = sheet_thickness - pockets_depth;
-    if (output_version == 1) {
-        color(pockets_color)
-            linear_extrude(offset)
-                horizontal_plate_2D();
+    difference() {
+        linear_extrude(sheet_thickness)
+            horizontal_plate_2D();
+        translate([0, 0, pockets_height])
+            linear_extrude(pockets_depth)
+                horizontal_plate_pockets();
     }
-    y = output_version == 1 ? offset : 0;
-    h = output_version == 1 ? pockets_depth : sheet_thickness;
-    translate([0, 0, y]) 
-        render() difference() {
-            linear_extrude(h)
-                horizontal_plate_2D();
-            translate([0, 0, pockets_height - y])
-                linear_extrude(pockets_depth)
-                    horizontal_plate_pockets();
-        }
 }
 
 // horizontal plate
@@ -343,12 +334,7 @@ module horizontal_plate() {
         horizontal_plate_2D();
     } 
     else if (output_mode == 3) {
-        difference() {
-            if (output_version == 1) {
-                horizontal_plate_2D();
-            }
-            horizontal_plate_pockets();
-        }
+        horizontal_plate_pockets();
     } 
     else {
         horizontal_plate_3D();
