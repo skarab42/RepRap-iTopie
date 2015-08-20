@@ -112,24 +112,13 @@ module vertical_plate_2D() {
 
 // vertical plate 3D
 module vertical_plate_3D() {
-    offset = sheet_thickness - pockets_depth;
-    if (output_version == 1) {
-        color(pockets_color)
-            linear_extrude(offset)
-                vertical_plate_2D();
+    difference() {
+        linear_extrude(sheet_thickness)
+            vertical_plate_2D();
+        translate([0, 0, sheet_thickness - logo_depth])
+            linear_extrude(logo_depth)
+                 logo();
     }
-    y = output_version == 1 ? offset : 0;
-    h = output_version == 1 ? pockets_depth : sheet_thickness;
-    d = output_version == 1 ? pockets_depth : logo_depth;
-    translate([0, 0, y])
-        render() difference() {
-            linear_extrude(h)
-                vertical_plate_2D();
-            translate([0, 0, h - d])
-                linear_extrude(d)
-                     logo();
-        }
-    
 }
 
 // vertical plate
@@ -149,12 +138,7 @@ module vertical_plate() {
         vertical_plate_2D();
     } 
     else if (output_mode == 3) {
-        difference() {
-            if (output_version == 1) {
-                vertical_plate_2D();
-            }
-            vertical_plate_pockets();
-        }
+        vertical_plate_pockets();
     } 
     else {
         vertical_plate_3D();

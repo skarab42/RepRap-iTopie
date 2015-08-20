@@ -58,20 +58,8 @@ module triangle_2D() {
 }
 
 module triangle_3D() {
-    if (output_version == 1) {
-        offset = sheet_thickness - pockets_depth;
-        color(pockets_color)
-            linear_extrude(offset)
-                triangle_2D();
-        translate([0, 0, offset])
-            linear_extrude(pockets_depth)
-                triangle_2D();
-            
-    } 
-    else {
-        linear_extrude(sheet_thickness)
+    linear_extrude(sheet_thickness)
         triangle_2D();
-    }
 }
 
 module triangle() {
@@ -88,8 +76,7 @@ module triangle() {
     else if (output_mode == 2) {
         triangle_2D();
     } 
-    else if (output_mode == 3 && output_version == 1) {
-        triangle_2D();
+    else if (output_mode == 3) {
     } 
     else {
         triangle_3D();
