@@ -2,7 +2,7 @@
 
 # Usage
 ```
-usage: build.py [-h] [--output_type type] [--output_dir path]
+usage: build.py [-h] [--target int] [--output_type int] [--output_dir path]
                 [--output_file filename] [--output_clean] [--tmp_dir path]
                 [--tmp_clean] [--odmt path] [--scad path] [--openscad path]
                 [--clean] [--version]
@@ -11,7 +11,12 @@ iTopie RepRap DXF builder - v1.0.0
 
 optional arguments:
   -h, --help            show this help message and exit
-  --output_type type, -t type
+  --target int
+                        output version (default : 0)
+                        ----------------------------
+                        0 : CNC milling (default)
+                        1 : Laser cutting
+  --output_type int, -t int
                         output type (default : 0)
                         -------------------------
                         0 : all (plate 1 and plate 2 in one file)
