@@ -4,6 +4,16 @@ Thank you.
 
 <img src="http://pix.slic.it/p/4f5" width="700px" />
 
+# Highly customizable [frame generator](https://github.com/lautr3k/RepRap-iTopie/tree/dev/scad)
+
+<img src="http://pix.slic.it/p/4fx" title="iTopie frame generator" width="600px"/>
+
+# DXF [build tool](https://github.com/lautr3k/RepRap-iTopie/tree/dev/build)
+Builder to create a clean layered DXF from (your custom) OpenSCAD source files.
+<img src="http://pix.slic.it/p/4fy" title="iTopie DXF build tool" width="600" />
+<img src="http://pix.slic.it/p/4fn" title="Generated DXF in CamBam" width="600" />
+
+## Some pictures
 <img src="http://reprap.org/mediawiki/images/7/71/ITopie_RepRap_14.jpg" width="230px"/>
 <img src="http://reprap.org/mediawiki/images/7/76/ITopie_RepRap_15.jpg" width="230px"/>
 <img src="http://reprap.org/mediawiki/images/2/27/ITopie_RepRap_16.jpg" width="230px"/>
