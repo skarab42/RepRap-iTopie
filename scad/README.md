@@ -5,8 +5,11 @@ The [configuration file](https://github.com/lautr3k/RepRap-iTopie/blob/dev/scad/
 ### Output version
 `output_version = 0` CNC milling (default)
 
-`output_version = 1` Laser cutting
+<img src="http://pix.slic.it/p/4fv" title="output_version=0" width="600" />
 
+`output_version = 1` Laser cutting (two layers glued together - Miguel Sánchez version)
+
+<img src="http://pix.slic.it/p/4fw" title="output_version=1" width="600" />
 
 ### Output mode
 `output_mode = 0` 2D preview (default)
