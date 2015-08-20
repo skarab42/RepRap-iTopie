@@ -15,7 +15,7 @@ $fn = 50;
 // output version
 // 0 : CNC milling (default)
 // 1 : Laser cutting
-output_version = 1;
+output_version = 0;
 
 // output mode
 // 0 : 2D preview (default)
@@ -23,7 +23,7 @@ output_version = 1;
 // 2 : export first layer (plates)
 // 3 : export second layer (pockets)
 // 4 : build preview (slow)
-output_mode = 1;
+output_mode = 0;
 
 // output type
 // 0 : all parts
