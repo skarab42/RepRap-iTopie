@@ -2,6 +2,12 @@
 The [configuration file](https://github.com/lautr3k/RepRap-iTopie/blob/dev/scad/config.scad) contains about 80 variables (evilly commented) you can adjust for fine tuning (all will not be explained here). See the [build directory](https://github.com/lautr3k/RepRap-iTopie/tree/dev/build) for DXF merging/layering/cleaning tool.
 
 # Some basic examples
+### Output version
+`output_version = 0` CNC milling (default)
+
+`output_version = 1` Laser cutting
+
+
 ### Output mode
 `output_mode = 0` 2D preview (default)
 
@@ -19,7 +25,7 @@ The [configuration file](https://github.com/lautr3k/RepRap-iTopie/blob/dev/scad/
 
 <img src="http://pix.slic.it/p/4fd" title="output_mode=3" width="600" />
 
-4` 3D build preview
+`output_mode = 4` 3D build preview
 
 <img src="http://pix.slic.it/p/4fe" title="output_mode=4" width="600" />
 
