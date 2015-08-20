@@ -56,8 +56,9 @@ module feet() {
     else if (output_mode == 2) {
         feet_2D();
     } 
-    else if (output_mode == 3 && output_version == 1) {
-        feet_2D();
+    else if (output_mode == 3) {
+        if (output_version == 1)
+            feet_2D();
     } 
     else {
         feet_3D();

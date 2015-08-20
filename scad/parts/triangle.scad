@@ -88,8 +88,9 @@ module triangle() {
     else if (output_mode == 2) {
         triangle_2D();
     } 
-    else if (output_mode == 3 && output_version == 1) {
-        triangle_2D();
+    else if (output_mode == 3) {
+        if (output_version == 1)
+            triangle_2D();
     } 
     else {
         triangle_3D();

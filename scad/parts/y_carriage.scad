@@ -218,12 +218,12 @@ module y_carriage_3D() {
     h = output_version == 1 ? pockets_depth : sheet_thickness;
     translate([0, 0, y])
         render() difference() {
-        linear_extrude(h) 
-            y_carriage_2D();
-        translate([0, 0, pockets_height - y])
-            linear_extrude(pockets_depth)
-                y_carriage_holes_pocket();
-    }
+            linear_extrude(h) 
+                y_carriage_2D();
+            translate([0, 0, pockets_height - y])
+                linear_extrude(pockets_depth)
+                    y_carriage_holes_pocket();
+        }
 }
 
 // pockets
@@ -240,7 +240,11 @@ module y_carriage() {
     // 1 : extruded view
     // 2 : export first layer
     // 3 : export second layer (pockets)
-    if (output_mode == 1) {
+    if (output_mode == 0) {
+        y_carriage_2D();
+        y_carriage_pockets();
+    }
+    else if (output_mode == 1) {
         y_carriage_3D();
     } 
     else if (output_mode == 2) {
@@ -255,8 +259,7 @@ module y_carriage() {
         }
     } 
     else {
-        y_carriage_2D();
-        y_carriage_pockets();
+        y_carriage_3D();
     }
 }
 

@@ -74,6 +74,9 @@ if (output_mode != 4) {
 if (output_mode == 4) {
     // horizontal plate
     horizontal_plate();
+    // y carriage
+    translate([(horizontal_plate_width - y_carriage_width) / 2, horizontal_plate_borders[2] + y_idler_mount_height + parts_margin, 0]) 
+        y_carriage();
     // vertical plate
     rotate([90, 0, 0])
         translate([0, -feet_height+sheet_thickness, -vertical_plate_y_position-sheet_thickness])
