@@ -11,6 +11,11 @@ from subprocess import call
 version     = '1.0.0'
 description = 'iTopie RepRap DXF builder - v' + version
 
+# output version
+# 0 : CNC milling (default)
+# 1 : Laser cutting
+outputVersion = 0;
+
 # output type
 # 0 : all plates
 # 1 : plate 1 (horizontal_plate, y_carriage, feet)
@@ -41,8 +46,15 @@ openscadPath = 'C:/Program Files/OpenSCAD/openscad.exe';
 parser = argparse.ArgumentParser(
     description = description,
     formatter_class=RawTextHelpFormatter);
+parser.add_argument('--target',
+    metavar = 'int',
+    default = outputVersion,
+    help    = 'output version (default : 0)\n'
+              '----------------------------\n'
+              '0 : CNC milling (default)\n'
+              '1 : Laser cutting');
 parser.add_argument('--output_type', '-t',
-    metavar = 'type',
+    metavar = 'int',
     default = outputType,
     help    = 'output type (default : 0)\n'
               '-------------------------\n'
@@ -87,10 +99,9 @@ args = parser.parse_args();
 
 # user settings
 outputType      = int(args.output_type);
+outputVersion   = int(args.target);
 outputAutoClean = args.clean or args.output_clean;
 tmpAutoClean    = args.clean or args.tmp_clean;
-
-print outputAutoClean, tmpAutoClean;
 
 outputDirectory = os.path.realpath(args.output_dir);
 openscadPath    = os.path.realpath(args.openscad);
@@ -126,6 +137,7 @@ call([openscadPath,
     '-o', tmpFile1,
     '-D', 'output_mode=2', # first layer
     '-D', 'output_type='+str(outputType),
+    '-D', 'output_version='+str(outputVersion),
     mainScadFile]);
 
 print 'create -> '+tmpFile2;
@@ -133,6 +145,7 @@ call([openscadPath,
     '-o', tmpFile2,
     '-D', 'output_mode=3', # second layer
     '-D', 'output_type='+str(outputType),
+    '-D', 'output_version='+str(outputVersion),
     mainScadFile]);
 
 call(['python', odmtPath, 
@@ -143,6 +156,7 @@ call(['python', odmtPath,
 if tmpAutoClean:
     print 'clean -> '+tmpDirectory;
     for tmpFile in os.listdir(tmpDirectory):
-        os.unlink(os.path.join(tmpDirectory, tmpFile));
+        if tmpFile[0] != '.': # avoid remove .git*
+            os.unlink(os.path.join(tmpDirectory, tmpFile));
 
 print 'done!';
