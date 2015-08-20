@@ -200,7 +200,7 @@ module y_carriage_base() {
 module y_carriage_2D() {
     difference() {
         y_carriage_base();
-        if (output_mode != 3 || output_version == 1)
+        if (output_mode != 3)
             y_carriage_holes();
         y_carriage_triangles();
     }
@@ -208,19 +208,10 @@ module y_carriage_2D() {
 
 // carriage 3D
 module y_carriage_3D() {
-    offset = sheet_thickness - pockets_depth;
-    if (output_version == 1) {
-        color(pockets_color)
-            linear_extrude(offset)
-                y_carriage_2D();
-    }
-    y = output_version == 1 ? offset : 0;
-    h = output_version == 1 ? pockets_depth : sheet_thickness;
-    translate([0, 0, y])
-        render() difference() {
-        linear_extrude(h) 
+    difference() {
+        linear_extrude(sheet_thickness) 
             y_carriage_2D();
-        translate([0, 0, pockets_height - y])
+        translate([0, 0, pockets_height])
             linear_extrude(pockets_depth)
                 y_carriage_holes_pocket();
     }
@@ -247,12 +238,7 @@ module y_carriage() {
         y_carriage_2D();
     } 
     else if (output_mode == 3) {
-        difference() {
-            if (output_version == 1) {
-                y_carriage_2D();
-            }
-            y_carriage_pockets();
-        }
+        y_carriage_pockets();
     } 
     else {
         y_carriage_2D();

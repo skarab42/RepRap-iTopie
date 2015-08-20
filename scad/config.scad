@@ -12,18 +12,13 @@ $fn = 50;
 // ---------------------------------------------------------------- //
 // output settings
 // ---------------------------------------------------------------- //
-// output version
-// 0 : CNC milling (default)
-// 1 : Laser cutting
-output_version = 1;
-
 // output mode
 // 0 : 2D preview (default)
-// 1 : extruded view (slow)
+// 1 : extruded view
 // 2 : export first layer (plates)
 // 3 : export second layer (pockets)
 // 4 : build preview (slow)
-output_mode = 1;
+output_mode = 0;
 
 // output type
 // 0 : all parts
@@ -44,7 +39,7 @@ parts_margin = 10;
 // ---------------------------------------------------------------- //
 sheet_thickness = 16;                    // raw sheet thickness
 pockets_depth   = 6;                     // pockets depth
-pockets_color   = "RoyalBlue";           // pockets color
+pockets_color   = "gray";                // pockets color
 connector_size  = [20, sheet_thickness]; // pockets/fingers [width, height]
 
 // ---------------------------------------------------------------- //
