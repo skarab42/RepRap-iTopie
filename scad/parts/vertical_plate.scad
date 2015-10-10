@@ -12,7 +12,7 @@ use     <../shapes.scad>
 
 // base plate
 module vertical_base_plate() {
-    translate([0, feet_height + sheet_thickness, 0]) {
+    translate([0, feet_height, 0]) {
         render() difference() {
             rounded_square(vertical_plate_width, vertical_plate_height - feet_height, corner_radius = [vertical_plate_outer_corners[0], vertical_plate_outer_corners[1], 0, 0]);
             translate([vertical_plate_borders[3], 0, 0])
@@ -20,9 +20,9 @@ module vertical_base_plate() {
             
         }
     }
-    rounded_square(foot_width, feet_height + sheet_thickness, corner_radius = [0, 0, feet_corners[1], feet_corners[0]]);
+    rounded_square(foot_width, feet_height, corner_radius = [0, 0, feet_corners[1], feet_corners[0]]);
     translate([vertical_plate_width - foot_width, 0, 0])
-        rounded_square(foot_width, feet_height + sheet_thickness, corner_radius = [0, 0, feet_corners[3], feet_corners[2]]);
+        rounded_square(foot_width, feet_height, corner_radius = [0, 0, feet_corners[3], feet_corners[2]]);
 }
 
 // triangles screws holes
@@ -38,7 +38,7 @@ module _triangle_holes() {
 }
 
 module triangle_holes() {
-    translate([0, feet_height, 0]) {
+    translate([0, feet_height + sheet_thickness, 0]) {
         translate([vertical_plate_borders[3] / 2, 0, 0])
             _triangle_holes();
         translate([vertical_plate_width - (vertical_plate_borders[1] / 2), 0, 0])
@@ -77,9 +77,9 @@ module _triangle_connectors_holes() {
 }
 
 module triangle_connectors_holes() {
-    translate([triangle_connectors_margin[3] + triangle_connectors_size[0], feet_height, 0])
+    translate([triangle_connectors_margin[3] + triangle_connectors_size[0], feet_height + sheet_thickness, 0])
         _triangle_connectors_holes();
-    translate([vertical_plate_width - triangle_connectors_margin[1], feet_height, 0])
+    translate([vertical_plate_width - triangle_connectors_margin[1], feet_height + sheet_thickness, 0])
         _triangle_connectors_holes();
 }
 
