@@ -79,7 +79,7 @@ if (output_mode == 4) {
         y_carriage();
     // vertical plate
     rotate([90, 0, 0])
-        translate([0, -feet_height+sheet_thickness, -vertical_plate_y_position-sheet_thickness])
+        translate([0, -feet_height, -vertical_plate_y_position-sheet_thickness])
             vertical_plate();
     // feet
     rotate([90, 0, 0])
