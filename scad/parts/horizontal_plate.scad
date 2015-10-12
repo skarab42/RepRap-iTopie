@@ -184,31 +184,6 @@ module y_motor_pocket() {
     y_motor_mount(1);
 }
 
-module _y_motor_pocket() {
-    radius  = (y_motor_mount_width - 24) / 4;
-    corners = [0, 0, y_motor_mount_corners[0], y_motor_mount_corners[1]];
-    translate([motor_pos[0], motor_pos[1] - y_motor_mount_height, 0]) {
-        render() difference() {
-            rounded_square(y_motor_mount_width, y_motor_mount_height, corner_radius = corners);
-            translate([0, (y_motor_mount_height / 2) + radius, 0]) {
-                translate([radius, 0, 0]) 
-                    circle(radius);
-                translate([y_motor_mount_width - radius, 0, 0]) 
-                    circle(radius);
-                square([y_motor_mount_width, (y_motor_mount_height / 2)]);
-            }
-        }
-        render() difference() {
-            translate([(y_motor_mount_width / 2) + 15.5, (y_motor_mount_height / 2) + radius + 15.5, 0])
-                for ( i = [0:y_motor_mount_angle+1] ) {
-                    rotate([0, 0, 180+i])
-                        translate([15.5, 15.5, 0])
-                            circle(12);
-                }
-        }
-    }
-}
-
 module y_idler_pocket() {
     top_radius    = _y_idler_pocket_width / 2;
     bottom_radius = (y_idler_mount_width - _y_idler_pocket_width) / 4;
