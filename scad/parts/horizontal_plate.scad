@@ -168,10 +168,8 @@ module y_motor_mount(centerOnly = 0) {
 
 module y_motor_pocket() {
     radius  = (y_motor_mount_width - 24) / 4;
-    //corners = [0, 0, y_motor_mount_corners[0], y_motor_mount_corners[1]];
     translate([motor_pos[0], motor_pos[1] - y_motor_mount_height, 0]) {
         render() difference() {
-            //rounded_square(y_motor_mount_width, y_motor_mount_height, corner_radius = corners);
             square([y_motor_mount_width, y_motor_mount_height]);
             translate([0, (y_motor_mount_height / 2) + radius, 0]) {
                 translate([radius, 0, 0]) 
