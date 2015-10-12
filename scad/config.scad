@@ -23,7 +23,7 @@ output_version = 0;
 // 2 : export first layer (plates)
 // 3 : export second layer (pockets)
 // 4 : build preview (slow)
-output_mode = 0;
+output_mode = 4;
 
 // output type
 // 0 : all parts
