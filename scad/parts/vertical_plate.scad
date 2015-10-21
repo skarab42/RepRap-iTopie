@@ -60,9 +60,9 @@ module z_rod_holder_holes() {
         (vertical_plate_width + z_motor_spacing) / 2
     ];
     translate([0, vertical_plate_height - z_rod_holder_holes_margin[0], 0]) {
-        translate([z_motor_pos[0] - z_rod_spacing, 0, 0])
+        translate([z_motor_pos[0] - z_rod_spacing + z_rod_holder_holes_margin[1], 0, 0])
             _z_rod_holder_holes();
-        translate([z_motor_pos[1] - z_rod_holder_holes_spacing + z_rod_spacing, 0, 0])
+        translate([z_motor_pos[1] - z_rod_holder_holes_spacing + z_rod_spacing - z_rod_holder_holes_margin[1], 0, 0])
             _z_rod_holder_holes();
     }         
 }
