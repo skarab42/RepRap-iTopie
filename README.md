@@ -1,6 +1,5 @@
 ## [RepRap iTopie](http://reprap.org/wiki/ITopie)
-Here you will find all the sources files for the [RepRap iTopie](http://reprap.org/wiki/ITopie).<br> The [build manual](http://reprap.org/wiki/ITopie_Build_Manual), [bill of materials](http://reprap.org/wiki/ITopie_Buyers_Guide) and other information is on the [RepRap wiki](http://reprap.org/wiki/ITopie). 
-Thank you.
+Here you will find all the sources files for the [RepRap iTopie](http://reprap.org/wiki/ITopie).<br>The [build manual](http://reprap.org/wiki/ITopie_Build_Manual), [bill of materials](http://reprap.org/wiki/ITopie_Buyers_Guide) and other information is on the [RepRap wiki](http://reprap.org/wiki/ITopie).<br>Thank you.
 
 <img src="http://pix.slic.it/p/4f5" width="700px" />
 
