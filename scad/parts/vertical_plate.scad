@@ -95,12 +95,13 @@ module vertical_plate_holes() {
     triangle_holes();
     z_rod_holder_holes();
     triangle_connectors_holes();
+    if (logo_depth == undef) logo();
 }
 
 // pockets
 module vertical_plate_pockets() {
     color(pockets_color) 
-        logo();
+        if (logo_depth != undef) logo();
 }
 
 // vertical plate 2D
@@ -128,9 +129,8 @@ module vertical_plate_3D() {
                 vertical_plate_2D();
             translate([0, 0, h - d])
                 linear_extrude(d)
-                     logo();
+                    if (logo_depth != undef) logo();
         }
-    
 }
 
 // vertical plate
