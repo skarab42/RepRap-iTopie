@@ -114,7 +114,7 @@ vertical_plate_position      = undef;                   // y position from the h
 // logo
 // ---------------------------------------------------------------- //
 dxf_logo   = "logo.dxf"; // path to DXF logo
-logo_depth = 2;          // logo pocket depth
+logo_depth = 2;          // logo pocket depth (set to undef for through cut)
 
 
 // ---------------------------------------------------------------- //
