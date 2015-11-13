@@ -148,6 +148,10 @@ call([openscadPath,
     '-D', 'output_version='+str(outputVersion),
     mainScadFile]);
 
+# if the pockets layer does not exist (pockets_depth = 0), then tmpFile2 should be empty
+if ~os.path.isfile(tmpFile2):
+    tmpFile2 = '';
+
 call(['python', odmtPath, 
     'input', tmpFile1, tmpFile2,
     '--output', outputFile]);
