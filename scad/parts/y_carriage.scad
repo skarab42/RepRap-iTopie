@@ -40,9 +40,9 @@ bed_holes_pos = [
 lm8_hspacing = y_rod_pockets_spacing / 2;
 lm8_vspacing = y_carriage_lm8_holder_vspacing ? y_carriage_lm8_holder_vspacing : y_carriage_height / 4;
 
-lm8_min_x = half_width - lm8_hspacing;
+lm8_min_x = half_width  - lm8_hspacing;
 lm8_min_y = half_height - lm8_vspacing;
-lm8_max_x = half_width + lm8_hspacing;
+lm8_max_x = half_width  + lm8_hspacing;
 lm8_max_y = half_height + lm8_vspacing;
 
 lm8_holder_pos = [
@@ -60,9 +60,9 @@ belt_holder_spacing = y_carriage_belt_holder_screw_spacing / 2;
 
 belt_holes_pos = [
     // 0 = top
-    [half_width, half_height + belt_holder_spacing],
+    [half_width + y_carriage_belt_holder_offset, half_height + belt_holder_spacing],
     // 1 = bottom
-    [half_width, half_height - belt_holder_spacing]
+    [half_width + y_carriage_belt_holder_offset, half_height - belt_holder_spacing]
 ];
     
 _endstop_flag_x_margin = y_carriage_triangle_margin[0] / 2;

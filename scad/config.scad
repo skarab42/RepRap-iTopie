@@ -143,6 +143,7 @@ y_carriage_triangle_offset       = 10;              // inner offset
 y_carriage_triangle_margin       = [11, 11];        // [x, y]
 y_carriage_thumbwheel_radius     = 10;
 
+y_carriage_belt_holder_offset        = 2;     // offset position from y carriage axis (issue#13)
 y_carriage_belt_holder_screw_spacing = 16;    // y belt holder holes spacing (axis to axis) 
 y_carriage_lm8_holder_screw_spacing  = 24;    // y lm8uu holder holes spacing (axis to axis) 
 y_carriage_lm8_holder_vspacing       = undef; // lm8uu holder vertical spacing (axis to axis)
