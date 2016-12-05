@@ -46,9 +46,9 @@ sheet_thickness = 16;                    // raw sheet thickness
 pockets_depth   = 6;                     // pockets depth
 pockets_color   = "RoyalBlue";           // pockets color
 connector_size  = [20, sheet_thickness]; // pockets/fingers [width, height]
-cutter_size     = 3.175;                 // size of the smallest cutter you are using 1/8" = 3.175
+cutter_size     = 3.175/2;               // size of the smallest cutter you are using 1/4" R = 3.175
 dogbone         = false;                 // cut dogbones?
-cutter_size     = 3.175/2;                 // size of the smallest cutter you are using 1/4" = 3.175
+
 
 // ---------------------------------------------------------------- //
 // shortcuts
