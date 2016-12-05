@@ -12,17 +12,34 @@ use     <../shapes.scad>
 
 // feet
 module feet_2D() {
-    render() difference() {
-        rounded_square(feet_width, feet_height, corner_radius = [0, 0, feet_corners[3], feet_corners[0]]);
-        translate([foot_width, 0, 0])
-            y_mount(feet_width - (foot_width * 2), feet_gap_height, [feet_corners[1], feet_corners[2], feet_corners[3], feet_corners[0]]);
-    }
-    translate([feet_connectors_margin[3], feet_height, 0])
-        square(connector_size);
-    translate([(horizontal_plate_width - connector_size[0]) / 2, feet_height, 0])
-        square(connector_size);
-    translate([horizontal_plate_width - connector_size[0] - feet_connectors_margin[1], feet_height, 0])
-        square(connector_size);
+    render() difference(){ union() {
+			difference() {
+				rounded_square(feet_width, feet_height, corner_radius = [0, 0, feet_corners[3], feet_corners[0]]);
+				translate([foot_width, 0, 0])
+					y_mount(feet_width - (foot_width * 2), feet_gap_height, [feet_corners[1], feet_corners[2], feet_corners[3], feet_corners[0]]);
+			}
+			translate([feet_connectors_margin[3], feet_height, 0])
+				square(connector_size);
+			translate([(horizontal_plate_width - connector_size[0]) / 2, feet_height, 0])
+				square(connector_size);
+			translate([horizontal_plate_width - connector_size[0] - feet_connectors_margin[1], feet_height, 0])
+				square(connector_size);
+			}
+		if(dogbone==true){
+			translate([feet_connectors_margin[3], feet_height, 0]){
+				translate([connector_size[0] + dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+				translate([- dogbone_offset,+dogbone_offset,0]) circle(r=cutter_size);
+				}
+			translate([(horizontal_plate_width - connector_size[0]) / 2, feet_height, 0]){
+				translate([connector_size[0] + dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+				translate([- dogbone_offset,+dogbone_offset,0]) circle(r=cutter_size);
+				}
+			translate([horizontal_plate_width - connector_size[0] - feet_connectors_margin[1], feet_height, 0]){
+				translate([connector_size[0] + dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+				translate([- dogbone_offset,+dogbone_offset,0]) circle(r=cutter_size);
+				}
+			}
+		}
 }
 
 module feet_3D() {
