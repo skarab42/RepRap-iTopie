@@ -27,16 +27,16 @@ module feet_2D() {
 			}
 		if(dogbone==true){
 			translate([feet_connectors_margin[3], feet_height, 0]){
-				translate([connector_size[0] + sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-				translate([- sqrt(cutter_size*cutter_size/2),+sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
+				translate([connector_size[0] + dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+				translate([- dogbone_offset,+dogbone_offset,0]) circle(r=cutter_size);
 				}
 			translate([(horizontal_plate_width - connector_size[0]) / 2, feet_height, 0]){
-				translate([connector_size[0] + sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-				translate([- sqrt(cutter_size*cutter_size/2),+sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
+				translate([connector_size[0] + dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+				translate([- dogbone_offset,+dogbone_offset,0]) circle(r=cutter_size);
 				}
 			translate([horizontal_plate_width - connector_size[0] - feet_connectors_margin[1], feet_height, 0]){
-				translate([connector_size[0] + sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-				translate([- sqrt(cutter_size*cutter_size/2),+sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
+				translate([connector_size[0] + dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+				translate([- dogbone_offset,+dogbone_offset,0]) circle(r=cutter_size);
 				}
 			}
 		}

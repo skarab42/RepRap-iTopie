@@ -62,30 +62,30 @@ module _feet_connectors_holes() {
     translate([feet_connectors_margin[3], 0, 0]){
 	    square(feet_connectors_size);
 		if(dogbone==true){
-			translate([sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([feet_connectors_size[0] - sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([sqrt(cutter_size*cutter_size/2),feet_connectors_size[1] - sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([feet_connectors_size[0] - sqrt(cutter_size*cutter_size/2),feet_connectors_size[1] - sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
+			translate([dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([feet_connectors_size[0] - dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([dogbone_offset,feet_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
+			translate([feet_connectors_size[0] - dogbone_offset,feet_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
 			}
 	}
     
     translate([(horizontal_plate_width - feet_connectors_size[0]) / 2, 0, 0]){
 		square(feet_connectors_size);
 		if(dogbone==true){
-			translate([sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([feet_connectors_size[0] - sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([sqrt(cutter_size*cutter_size/2),feet_connectors_size[1] - sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([feet_connectors_size[0] - sqrt(cutter_size*cutter_size/2),feet_connectors_size[1] - sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
+			translate([dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([feet_connectors_size[0] - dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([dogbone_offset,feet_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
+			translate([feet_connectors_size[0] - dogbone_offset,feet_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
 			}
 	}
         
     translate([horizontal_plate_width - feet_connectors_size[0] - feet_connectors_margin[1], 0, 0]){
 		square(feet_connectors_size);
 		if(dogbone==true){
-			translate([sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([feet_connectors_size[0] - sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([sqrt(cutter_size*cutter_size/2),feet_connectors_size[1] - sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([feet_connectors_size[0] - sqrt(cutter_size*cutter_size/2),feet_connectors_size[1] - sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
+			translate([dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([feet_connectors_size[0] - dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([dogbone_offset,feet_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
+			translate([feet_connectors_size[0] - dogbone_offset,feet_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
 			}
 	}
     // feet screws holes
@@ -125,20 +125,20 @@ module triangle_connectors_holes() {
     translate([triangle_connectors_margin[3], margin_top, 0]) {
         square(triangle_connectors_size);
 		if(dogbone==true){
-			translate([sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([triangle_connectors_size[0] - sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([sqrt(cutter_size*cutter_size/2),triangle_connectors_size[1] - sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([triangle_connectors_size[0] - sqrt(cutter_size*cutter_size/2),triangle_connectors_size[1] - sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
+			translate([dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([triangle_connectors_size[0] - dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([dogbone_offset,triangle_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
+			translate([triangle_connectors_size[0] - dogbone_offset,triangle_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
 			}
         triangle_screws_holes();
     }
     translate([horizontal_plate_width - triangle_connectors_size[0] - triangle_connectors_margin[1], margin_top, 0]) {
         square(triangle_connectors_size);
 		if(dogbone==true){
-			translate([sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([triangle_connectors_size[0] - sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([sqrt(cutter_size*cutter_size/2),triangle_connectors_size[1] - sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([triangle_connectors_size[0] - sqrt(cutter_size*cutter_size/2),triangle_connectors_size[1] - sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
+			translate([dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([triangle_connectors_size[0] - dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([dogbone_offset,triangle_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
+			translate([triangle_connectors_size[0] - dogbone_offset,triangle_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
 			}
         triangle_screws_holes();
     }
@@ -149,16 +149,16 @@ module vertical_plate_holes() {
     translate([0, vertical_plate_y_position, 0]){
 		square([foot_width, sheet_thickness]);
 		if(dogbone==true){
-			translate([foot_width - sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([foot_width - sqrt(cutter_size*cutter_size/2),sheet_thickness - sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
+			translate([foot_width - dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([foot_width - dogbone_offset,sheet_thickness - dogbone_offset,0]) circle(r=cutter_size);
 			}
 	}
         
     translate([horizontal_plate_width - foot_width, vertical_plate_y_position, 0]){
 		square([foot_width, sheet_thickness]);
 		if(dogbone==true){
-			translate([sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([sqrt(cutter_size*cutter_size/2),sheet_thickness - sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
+			translate([dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([dogbone_offset,sheet_thickness - dogbone_offset,0]) circle(r=cutter_size);
 			}
 	}
 }

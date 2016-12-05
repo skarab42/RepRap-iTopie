@@ -72,29 +72,29 @@ module _triangle_connectors_holes() {
     translate([-triangle_connectors_size[0], 20, 0]){
         square([triangle_connectors_size[0], triangle_connectors_size[1]]);
 		if(dogbone==true){
-			translate([sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([triangle_connectors_size[0] - sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([sqrt(cutter_size*cutter_size/2),triangle_connectors_size[1] - sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([triangle_connectors_size[0] - sqrt(cutter_size*cutter_size/2),triangle_connectors_size[1] - sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
+			translate([dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([triangle_connectors_size[0] - dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([dogbone_offset,triangle_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
+			translate([triangle_connectors_size[0] - dogbone_offset,triangle_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
 			}
 		}
     translate([-triangle_connectors_size[0], (_triangle_height - 20 + triangle_connectors_size[1]) / 2, 0]){
 		square([triangle_connectors_size[0], triangle_connectors_size[1]]);
 		if(dogbone==true){
-			translate([sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([triangle_connectors_size[0] - sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([sqrt(cutter_size*cutter_size/2),triangle_connectors_size[1] - sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([triangle_connectors_size[0] - sqrt(cutter_size*cutter_size/2),triangle_connectors_size[1] - sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
+			translate([dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([triangle_connectors_size[0] - dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([dogbone_offset,triangle_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
+			translate([triangle_connectors_size[0] - dogbone_offset,triangle_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
 			}
 		}
         
     translate([-triangle_connectors_size[0], _triangle_height - triangle_connectors_size[1], 0]){
 		square([triangle_connectors_size[0], triangle_connectors_size[1]]);
 		if(dogbone==true){
-			translate([sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([triangle_connectors_size[0] - sqrt(cutter_size*cutter_size/2),sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([sqrt(cutter_size*cutter_size/2),triangle_connectors_size[1] - sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-			translate([triangle_connectors_size[0] - sqrt(cutter_size*cutter_size/2),triangle_connectors_size[1] - sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
+			translate([dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([triangle_connectors_size[0] - dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([dogbone_offset,triangle_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
+			translate([triangle_connectors_size[0] - dogbone_offset,triangle_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
 			}
 		}
         

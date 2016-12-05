@@ -23,19 +23,19 @@ module triangle_connectors() {
 
 module triangle_connectors_dogbone(){
 	translate([-triangle_connectors_size[0], 20, 0]){
-		translate([triangle_connectors_size[0] - sqrt(cutter_size*cutter_size/2),-sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-		translate([triangle_connectors_size[0] - sqrt(cutter_size*cutter_size/2),triangle_connectors_size[0]+sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
+		translate([triangle_connectors_size[0] - dogbone_offset,-dogbone_offset,0]) circle(r=cutter_size);
+		translate([triangle_connectors_size[0] - dogbone_offset,triangle_connectors_size[0]+dogbone_offset,0]) circle(r=cutter_size);
 	}
 	translate([-triangle_connectors_size[0], (_triangle_height - 20 + triangle_connectors_size[1]) / 2, 0]){
-		translate([triangle_connectors_size[0] - sqrt(cutter_size*cutter_size/2),-sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-		translate([triangle_connectors_size[0] - sqrt(cutter_size*cutter_size/2),triangle_connectors_size[0]+sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
+		translate([triangle_connectors_size[0] - dogbone_offset,-dogbone_offset,0]) circle(r=cutter_size);
+		translate([triangle_connectors_size[0] - dogbone_offset,triangle_connectors_size[0]+dogbone_offset,0]) circle(r=cutter_size);
 	}
     translate([-triangle_connectors_size[0], _triangle_height - triangle_connectors_size[1], 0]){
-		translate([triangle_connectors_size[0] - sqrt(cutter_size*cutter_size/2),-sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
+		translate([triangle_connectors_size[0] - dogbone_offset,-dogbone_offset,0]) circle(r=cutter_size);
 	}
     translate([_triangle_width - triangle_connectors_size[1] - triangle_connectors_margin[0], -triangle_connectors_size[0], 0]){
-		translate([- sqrt(cutter_size*cutter_size/2),triangle_connectors_size[0]-sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
-		translate([triangle_connectors_size[1] + sqrt(cutter_size*cutter_size/2),triangle_connectors_size[0]-sqrt(cutter_size*cutter_size/2),0]) circle(r=cutter_size);
+		translate([- dogbone_offset,triangle_connectors_size[0]-dogbone_offset,0]) circle(r=cutter_size);
+		translate([triangle_connectors_size[1] + dogbone_offset,triangle_connectors_size[0]-dogbone_offset,0]) circle(r=cutter_size);
 	}
 }
 
