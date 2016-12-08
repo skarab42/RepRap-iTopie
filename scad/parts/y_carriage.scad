@@ -228,9 +228,11 @@ module y_carriage_3D() {
 
 // pockets
 module y_carriage_pockets() {
-    color(pockets_color) render() intersection() {
-        y_carriage_2D();
-        y_carriage_holes_pocket();
+    if (pockets_depth != 0) {
+        color(pockets_color) render() intersection() {
+            y_carriage_2D();
+            y_carriage_holes_pocket();
+        }
     }
 }
 
@@ -251,14 +253,17 @@ module y_carriage() {
         y_carriage_2D();
     } 
     else if (output_mode == 3) {
-        difference() {
-            if (output_version == 1) {
-                y_carriage_2D();
+        if (pockets_depth != 0) {
+            difference() {
+                if (output_version == 1) {
+                    y_carriage_2D();
+                }
+                y_carriage_pockets();
             }
-            y_carriage_pockets();
+        } else {
+            echo("Can't output pocket layer, there are no pockets (pockets_depth = 0)");
         }
-    } 
-    else {
+    } else {
         y_carriage_3D();
     }
 }

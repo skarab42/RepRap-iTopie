@@ -43,7 +43,7 @@ parts_margin = 10;
 // drawing settings
 // ---------------------------------------------------------------- //
 sheet_thickness = 16;                    // raw sheet thickness
-pockets_depth   = 6;                     // pockets depth
+pockets_depth   = 6;                     // pockets depth (set to 0 for no pockets, in this case you'll need to print 4x y_rod_holder.OPTIONAL.stl)
 pockets_color   = "RoyalBlue";           // pockets color
 connector_size  = [20, sheet_thickness]; // pockets/fingers [width, height]
 

@@ -100,8 +100,10 @@ module vertical_plate_holes() {
 
 // pockets
 module vertical_plate_pockets() {
-    color(pockets_color) 
-        if (logo_depth != undef) logo();
+    if (pockets_depth != 0) {
+        color(pockets_color)
+            if (logo_depth != undef) logo();
+    }
 }
 
 // vertical plate 2D
@@ -150,14 +152,17 @@ module vertical_plate() {
         vertical_plate_2D();
     } 
     else if (output_mode == 3) {
-        difference() {
-            if (output_version == 1) {
-                vertical_plate_2D();
+        if (pockets_depth != 0) {
+            difference() {
+                if (output_version == 1) {
+                    vertical_plate_2D();
+                }
+                vertical_plate_pockets();
             }
-            vertical_plate_pockets();
+        } else {
+            echo("Can't output pocket layer, there are no pockets (pockets_depth = 0)");
         }
-    } 
-    else {
+    } else {
         vertical_plate_3D();
     }
 }
