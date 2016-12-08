@@ -34,7 +34,7 @@ output_dir  = os.path.dirname(output_file)
 
 # test output path
 if os.path.isdir(output_dir) == False:
-    print 'output directory not found :', output_dir
+    print('output directory not found :'+ output_dir)
     sys.exit(1);
 
 # input type file
@@ -44,26 +44,26 @@ if args.input_type == 'file':
             input_files.append(input_file)
     # no DXF file provided
     if len(input_files) == 0:
-        print 'at least one DXF file must be provided'
+        print('at least one DXF file must be provided')
         sys.exit(1);
 
 # input type directory
 elif args.input_type == 'dir':
     input_dir = os.path.realpath(args.input[0])
     if os.path.isdir(input_dir) == False:
-        print 'input directory not found :', input_dir
+        print('input directory not found :'+ input_dir)
         sys.exit(1);
     input_files = glob.glob(input_dir + '/*.dxf')
     # no DXF file provided
     if len(input_files) == 0:
-        print 'no DXF file found in', input_dir
+        print('no DXF file found in'+ input_dir)
         sys.exit(1);
 
 # ...
 def merge_dxf_file(file):
     'Merge DXF file and convert continuous line to polyline.'
 
-    print 'merging ->', file
+    print('merging ->'+ file)
     
     dwg.layers.create(name=layer_name, dxfattribs={'color': layer_num})
 
@@ -129,4 +129,4 @@ for input_file in input_files:
 
 # save output
 dwg.saveas(output_file)
-print 'output :', output_file
+print('output :'+ output_file)

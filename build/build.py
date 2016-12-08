@@ -111,7 +111,7 @@ odmtPath        = os.path.realpath(args.odmt);
 
 # clean output folder
 if outputAutoClean:
-    print 'clean -> '+outputDirectory;
+    print('clean -> '+outputDirectory);
     for outputFile in os.listdir(outputDirectory):
         os.unlink(os.path.join(outputDirectory, outputFile));
 
@@ -132,7 +132,7 @@ tmpFile1   = os.path.realpath(os.path.join(tmpDirectory, outputFilename+'_layer_
 tmpFile2   = os.path.realpath(os.path.join(tmpDirectory, outputFilename+'_layer_2.dxf'));
 
 # build process
-print 'create -> '+tmpFile1;
+print('create -> '+tmpFile1);
 call([openscadPath, 
     '-o', tmpFile1,
     '-D', 'output_mode=2', # first layer
@@ -140,7 +140,7 @@ call([openscadPath,
     '-D', 'output_version='+str(outputVersion),
     mainScadFile]);
 
-print 'create -> '+tmpFile2;
+print('create -> '+tmpFile2);
 call([openscadPath, 
     '-o', tmpFile2,
     '-D', 'output_mode=3', # second layer
@@ -154,9 +154,9 @@ call(['python', odmtPath,
 
 # clean temporary folder
 if tmpAutoClean:
-    print 'clean -> '+tmpDirectory;
+    print('clean -> '+tmpDirectory);
     for tmpFile in os.listdir(tmpDirectory):
         if tmpFile[0] != '.': # avoid remove .git*
             os.unlink(os.path.join(tmpDirectory, tmpFile));
 
-print 'done!';
+print('done!');
