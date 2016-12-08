@@ -46,12 +46,16 @@ sheet_thickness = 16;                    // raw sheet thickness
 pockets_depth   = 6;                     // pockets depth
 pockets_color   = "RoyalBlue";           // pockets color
 connector_size  = [20, sheet_thickness]; // pockets/fingers [width, height]
+cutter_size     = 3.175/2;               // size of the smallest cutter you are using 1/4" R = 3.175
+dogbone         = false;                 // cut dogbones?
+
 
 // ---------------------------------------------------------------- //
 // shortcuts
 // ---------------------------------------------------------------- //
 m3_screw_radius = 1.5;
 m4_screw_radius = 2;
+dogbone_offset = sqrt(cutter_size*cutter_size/2);
 
 // ---------------------------------------------------------------- //
 // horizontal plate
