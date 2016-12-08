@@ -13,6 +13,7 @@ use     <../shapes.scad>
 // triangle connectors
 module triangle_connectors() {
     translate([-triangle_connectors_size[0], 20, 0])
+        square(triangle_connectors_size);
     translate([-triangle_connectors_size[0], (_triangle_height - 20 + triangle_connectors_size[1]) / 2, 0])
         square(triangle_connectors_size);
     translate([-triangle_connectors_size[0], _triangle_height - triangle_connectors_size[1], 0])
@@ -24,11 +25,11 @@ module triangle_connectors() {
 module triangle_connectors_dogbone(){
 	translate([-triangle_connectors_size[0], 20, 0]){
 		translate([triangle_connectors_size[0] - dogbone_offset,-dogbone_offset,0]) circle(r=cutter_size);
-		translate([triangle_connectors_size[0] - dogbone_offset,triangle_connectors_size[0]+dogbone_offset,0]) circle(r=cutter_size);
+		translate([triangle_connectors_size[0] - dogbone_offset,triangle_connectors_size[1]+dogbone_offset,0]) circle(r=cutter_size);
 	}
 	translate([-triangle_connectors_size[0], (_triangle_height - 20 + triangle_connectors_size[1]) / 2, 0]){
 		translate([triangle_connectors_size[0] - dogbone_offset,-dogbone_offset,0]) circle(r=cutter_size);
-		translate([triangle_connectors_size[0] - dogbone_offset,triangle_connectors_size[0]+dogbone_offset,0]) circle(r=cutter_size);
+		translate([triangle_connectors_size[0] - dogbone_offset,triangle_connectors_size[1]+dogbone_offset,0]) circle(r=cutter_size);
 	}
     translate([-triangle_connectors_size[0], _triangle_height - triangle_connectors_size[1], 0]){
 		translate([triangle_connectors_size[0] - dogbone_offset,-dogbone_offset,0]) circle(r=cutter_size);
