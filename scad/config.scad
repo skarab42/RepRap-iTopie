@@ -15,7 +15,7 @@ $fn = 50;
 // output version
 // 0 : CNC milling (default)
 // 1 : Laser cutting
-output_version = 0;
+output_version = 1;
 
 // output mode
 // 0 : 2D preview (default)
@@ -23,7 +23,7 @@ output_version = 0;
 // 2 : export first layer (plates)
 // 3 : export second layer (pockets)
 // 4 : build preview (slow)
-output_mode = 0;
+output_mode = 3;
 
 // output type
 // 0 : all parts
@@ -42,8 +42,8 @@ parts_margin = 10;
 // ---------------------------------------------------------------- //
 // drawing settings
 // ---------------------------------------------------------------- //
-sheet_thickness = 16;                    // raw sheet thickness
-pockets_depth   = 6;                     // pockets depth
+sheet_thickness = 12.7;                    // raw sheet thickness
+pockets_depth   = 6.45;                     // pockets depth
 pockets_color   = "RoyalBlue";           // pockets color
 connector_size  = [20, sheet_thickness]; // pockets/fingers [width, height]
 
@@ -52,12 +52,23 @@ connector_size  = [20, sheet_thickness]; // pockets/fingers [width, height]
 // ---------------------------------------------------------------- //
 m3_screw_radius = 1.5;
 m4_screw_radius = 2;
+general_mount_radius = m3_screw_radius;
+
+// ---------------------------------------------------------------- //
+// seed lengths
+// ---------------------------------------------------------------- //
+x_rod_length = 380;
+y_rod_length = 330;
+z_rod_length = 400;
+feet_height  = 60;
 
 // ---------------------------------------------------------------- //
 // horizontal plate
 // ---------------------------------------------------------------- //
-horizontal_plate_width         = 390;              // 
-horizontal_plate_height        = 440;              // 
+// horizontal_plate_width         = 390;              // 
+horizontal_plate_width         = x_rod_length + 10;              // 
+// horizontal_plate_height        = 440;              // 
+horizontal_plate_height        = y_rod_length + 40;              // 
 horizontal_plate_borders       = [40, 82, 40, 82]; // borders weight       [top, right, bottom, left]
 horizontal_plate_outer_corners = [10, 10, 10, 10]; // outer corners radius [topLeft, topRight, bottomRight, bottoLeft]
 horizontal_plate_inner_corners = [30, 30, 30, 30]; // inner corners radius [topLeft, topRight, bottomRight, bottoLeft]
@@ -104,7 +115,8 @@ y_endstop_mount_position = 82;                 // from the frame top border to t
 // ---------------------------------------------------------------- //
 // vertical plate
 vertical_plate_width         = horizontal_plate_width;  // outer width
-vertical_plate_height        = horizontal_plate_height; // outer height
+// vertical_plate_height        = horizontal_plate_height; // outer height
+vertical_plate_height        = z_rod_length + feet_height; // outer height
 vertical_plate_borders       = [60, 60, undef, 60];     // borders weight       [top, right, bottom, left]
 vertical_plate_outer_corners = [10, 10, 10, 10];        // outer corners radius [topLeft, topRight, bottomRight, bottoLeft]
 vertical_plate_inner_corners = [10, 10, 10, 10];        // inner corners radius [topLeft, topRight, bottomRight, bottoLeft]
@@ -160,7 +172,7 @@ y_endstop_holes_spacing = 9.5;             // between the two endstop screws (ax
 // feet
 // ---------------------------------------------------------------- //
 feet_width      = horizontal_plate_width;  // 
-feet_height     = 60;                      // 
+// feet_height     = 60;                      // 
 feet_corners    = [10, 10, 10, 10];        // corners radius [leftOut, leftIn, rightIn, rightOut]
 feet_gap_height = 20;                      // gap height ?
 
