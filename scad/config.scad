@@ -23,7 +23,7 @@ output_version = 1;
 // 2 : export first layer (plates)
 // 3 : export second layer (pockets)
 // 4 : build preview (slow)
-output_mode = 3;
+output_mode = 0;
 
 // output type
 // 0 : all parts
@@ -55,19 +55,17 @@ m4_screw_radius = 2;
 general_mount_radius = m3_screw_radius;
 
 // ---------------------------------------------------------------- //
-// seed lengths
+// rod lengths
 // ---------------------------------------------------------------- //
+// available: 2x400, 2x380, 2x330
 x_rod_length = 380;
-y_rod_length = 330;
-z_rod_length = 400;
-feet_height  = 60;
+y_rod_length = 400;
+z_rod_length = 330;
 
 // ---------------------------------------------------------------- //
 // horizontal plate
 // ---------------------------------------------------------------- //
-// horizontal_plate_width         = 390;              // 
 horizontal_plate_width         = x_rod_length + 10;              // 
-// horizontal_plate_height        = 440;              // 
 horizontal_plate_height        = y_rod_length + 40;              // 
 horizontal_plate_borders       = [40, 82, 40, 82]; // borders weight       [top, right, bottom, left]
 horizontal_plate_outer_corners = [10, 10, 10, 10]; // outer corners radius [topLeft, topRight, bottomRight, bottoLeft]
@@ -111,11 +109,26 @@ y_endstop_mount_corners  = [8.2, 8.2, 10, 10]; // corners radius [topLeft, topRi
 y_endstop_mount_position = 82;                 // from the frame top border to the endstop top border
 
 // ---------------------------------------------------------------- //
+// feet
+// ---------------------------------------------------------------- //
+feet_width      = horizontal_plate_width;  // 
+feet_height     = 60;                      // 
+feet_corners    = [10, 10, 10, 10];        // corners radius [leftOut, leftIn, rightIn, rightOut]
+feet_gap_height = 20;                      // gap height ?
+
+feet_connectors_size   = connector_size;       //
+feet_connectors_margin = [10.5, 40, 10.5, 40]; // pockets margin [top, right, bottom, left]
+
+feet_holes_radius = m4_screw_radius; // feet screws holes radius
+feet_holes_margin = 15;              // feet screws horizontal margin (for fine adjustement)
+
+foot_width = 40; //
+
+// ---------------------------------------------------------------- //
 // vertical plate
 // ---------------------------------------------------------------- //
 // vertical plate
 vertical_plate_width         = horizontal_plate_width;  // outer width
-// vertical_plate_height        = horizontal_plate_height; // outer height
 vertical_plate_height        = z_rod_length + feet_height; // outer height
 vertical_plate_borders       = [60, 60, undef, 60];     // borders weight       [top, right, bottom, left]
 vertical_plate_outer_corners = [10, 10, 10, 10];        // outer corners radius [topLeft, topRight, bottomRight, bottoLeft]
@@ -142,7 +155,7 @@ triangle_connectors_size   = [connector_size[1], connector_size[0]]; // rotate 9
 triangle_connectors_margin = [63, 22, undef, 22];                    // pockets margin [top, right, ---, left]
 
 triangle_holes_radius = m4_screw_radius; // screws holes radius
-triangle_holes_margin = 20;              // screws margin (from z triangle pocket border)
+triangle_holes_margin = 10;              // screws margin (from z triangle pocket border)
 
 // ---------------------------------------------------------------- //
 // y carriage
@@ -167,22 +180,6 @@ y_rod_holes_margin = 4;               // y rod screws margin (from y rod pocket 
 
 y_endstop_holes_radius  = m3_screw_radius; // endstop screws holes radius
 y_endstop_holes_spacing = 9.5;             // between the two endstop screws (axis to axis)
-
-// ---------------------------------------------------------------- //
-// feet
-// ---------------------------------------------------------------- //
-feet_width      = horizontal_plate_width;  // 
-// feet_height     = 60;                      // 
-feet_corners    = [10, 10, 10, 10];        // corners radius [leftOut, leftIn, rightIn, rightOut]
-feet_gap_height = 20;                      // gap height ?
-
-feet_connectors_size   = connector_size;       //
-feet_connectors_margin = [10.5, 40, 10.5, 40]; // pockets margin [top, right, bottom, left]
-
-feet_holes_radius = m4_screw_radius; // feet screws holes radius
-feet_holes_margin = 10;              // feet screws horizontal margin (for fine adjustement)
-
-foot_width = 40; //
 
 // ---------------------------------------------------------------- //
 //     CHANGE NOTHING BELOW, UNLESS YOU KNOW WHAT YOU ARE DOING
