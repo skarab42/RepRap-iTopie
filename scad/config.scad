@@ -43,7 +43,7 @@ parts_margin = 10;
 // drawing settings
 // ---------------------------------------------------------------- //
 sheet_thickness = 12.7;                    // raw sheet thickness
-pockets_depth   = 6.45;                     // pockets depth
+pockets_depth   = 6.35;                     // pockets depth
 pockets_color   = "RoyalBlue";           // pockets color
 connector_size  = [20, sheet_thickness]; // pockets/fingers [width, height]
 
