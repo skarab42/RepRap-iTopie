@@ -42,8 +42,8 @@ parts_margin = 10;
 // ---------------------------------------------------------------- //
 // drawing settings
 // ---------------------------------------------------------------- //
-sheet_thickness = 12.7;                    // raw sheet thickness
-pockets_depth   = 6.35;                     // pockets depth
+sheet_thickness = 16;                    // raw sheet thickness
+pockets_depth   = 6;                     // pockets depth
 pockets_color   = "RoyalBlue";           // pockets color
 connector_size  = [20, sheet_thickness]; // pockets/fingers [width, height]
 
@@ -57,10 +57,9 @@ general_mount_radius = m3_screw_radius;
 // ---------------------------------------------------------------- //
 // rod lengths
 // ---------------------------------------------------------------- //
-// available: 2x400, 2x380, 2x330
 x_rod_length = 380;
 y_rod_length = 400;
-z_rod_length = 330;
+z_rod_length = 380;
 
 // ---------------------------------------------------------------- //
 // horizontal plate
