@@ -154,7 +154,7 @@ triangle_connectors_size   = [connector_size[1], connector_size[0]]; // rotate 9
 triangle_connectors_margin = [63, 22, undef, 22];                    // pockets margin [top, right, ---, left]
 
 triangle_holes_radius = m4_screw_radius; // screws holes radius
-triangle_holes_margin = 10;              // screws margin (from z triangle pocket border)
+triangle_holes_margin = 20;              // screws margin (from z triangle pocket border)
 
 // ---------------------------------------------------------------- //
 // y carriage
