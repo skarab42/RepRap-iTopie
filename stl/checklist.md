@@ -1,0 +1,19 @@
+- [ ] iTopie_x_carriage.stl
+- [ ] iTopie_x_carriage_v2.stl
+- [ ] iTopie_x_end_idler.stl
+- [ ] iTopie_x_end_motor.stl
+- [ ] iTopie_xy_bearing_idler.stl
+- [ ] iTopie_xz_endstop_holder.stl
+- [ ] iTopie_y_belt_holder.stl
+- [ ] iTopie_y_lm8uu_holder.stl
+- [ ] iTopie_z_rod_holder_left.stl
+- [ ] iTopie_z_rod_holder_right.stl
+- [ ] iTopie_z_endstop_thumbwheel.OPTIONAL.stl
+- [ ] iTopie_y_endstop_flag.OPTIONAL.stl
+- [ ] iTopie_y_bed_thumbwheel.OPTIONAL.stl
+- [ ] iTopie_logo.OPTIONAL.stl
+- [ ] upgrades
+	- [ ] iTopie_power_panel_left.stl
+	- [ ] iTopie_power_panel_right.stl
+	- [ ] iTopie_power_supply_bracket.stl
+	- [ ] iTopie_smoothieboard_panel.stl

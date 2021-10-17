@@ -52,12 +52,20 @@ connector_size  = [20, sheet_thickness]; // pockets/fingers [width, height]
 // ---------------------------------------------------------------- //
 m3_screw_radius = 1.5;
 m4_screw_radius = 2;
+general_mount_radius = m3_screw_radius;
+
+// ---------------------------------------------------------------- //
+// rod lengths
+// ---------------------------------------------------------------- //
+x_rod_length = 380;
+y_rod_length = 400;
+z_rod_length = 380;
 
 // ---------------------------------------------------------------- //
 // horizontal plate
 // ---------------------------------------------------------------- //
-horizontal_plate_width         = 390;              // 
-horizontal_plate_height        = 440;              // 
+horizontal_plate_width         = x_rod_length + 10;              // 
+horizontal_plate_height        = y_rod_length + 40;              // 
 horizontal_plate_borders       = [40, 82, 40, 82]; // borders weight       [top, right, bottom, left]
 horizontal_plate_outer_corners = [10, 10, 10, 10]; // outer corners radius [topLeft, topRight, bottomRight, bottoLeft]
 horizontal_plate_inner_corners = [30, 30, 30, 30]; // inner corners radius [topLeft, topRight, bottomRight, bottoLeft]
@@ -100,11 +108,27 @@ y_endstop_mount_corners  = [8.2, 8.2, 10, 10]; // corners radius [topLeft, topRi
 y_endstop_mount_position = 82;                 // from the frame top border to the endstop top border
 
 // ---------------------------------------------------------------- //
+// feet
+// ---------------------------------------------------------------- //
+feet_width      = horizontal_plate_width;  // 
+feet_height     = 60;                      // 
+feet_corners    = [10, 10, 10, 10];        // corners radius [leftOut, leftIn, rightIn, rightOut]
+feet_gap_height = 20;                      // gap height ?
+
+feet_connectors_size   = connector_size;       //
+feet_connectors_margin = [10.5, 40, 10.5, 40]; // pockets margin [top, right, bottom, left]
+
+feet_holes_radius = m4_screw_radius; // feet screws holes radius
+feet_holes_margin = 15;              // feet screws horizontal margin (for fine adjustement)
+
+foot_width = 40; //
+
+// ---------------------------------------------------------------- //
 // vertical plate
 // ---------------------------------------------------------------- //
 // vertical plate
 vertical_plate_width         = horizontal_plate_width;  // outer width
-vertical_plate_height        = horizontal_plate_height; // outer height
+vertical_plate_height        = z_rod_length + feet_height; // outer height
 vertical_plate_borders       = [60, 60, undef, 60];     // borders weight       [top, right, bottom, left]
 vertical_plate_outer_corners = [10, 10, 10, 10];        // outer corners radius [topLeft, topRight, bottomRight, bottoLeft]
 vertical_plate_inner_corners = [10, 10, 10, 10];        // inner corners radius [topLeft, topRight, bottomRight, bottoLeft]
@@ -155,22 +179,6 @@ y_rod_holes_margin = 4;               // y rod screws margin (from y rod pocket 
 
 y_endstop_holes_radius  = m3_screw_radius; // endstop screws holes radius
 y_endstop_holes_spacing = 9.5;             // between the two endstop screws (axis to axis)
-
-// ---------------------------------------------------------------- //
-// feet
-// ---------------------------------------------------------------- //
-feet_width      = horizontal_plate_width;  // 
-feet_height     = 60;                      // 
-feet_corners    = [10, 10, 10, 10];        // corners radius [leftOut, leftIn, rightIn, rightOut]
-feet_gap_height = 20;                      // gap height ?
-
-feet_connectors_size   = connector_size;       //
-feet_connectors_margin = [10.5, 40, 10.5, 40]; // pockets margin [top, right, bottom, left]
-
-feet_holes_radius = m4_screw_radius; // feet screws holes radius
-feet_holes_margin = 10;              // feet screws horizontal margin (for fine adjustement)
-
-foot_width = 40; //
 
 // ---------------------------------------------------------------- //
 //     CHANGE NOTHING BELOW, UNLESS YOU KNOW WHAT YOU ARE DOING
