@@ -59,12 +59,35 @@ module horizontal_base_plate() {
 // feet holes
 module _feet_connectors_holes() {
     // feet connector holes
-    translate([feet_connectors_margin[3], 0, 0])
-        square(feet_connectors_size);
-    translate([(horizontal_plate_width - feet_connectors_size[0]) / 2, 0, 0])
-        square(feet_connectors_size);
-    translate([horizontal_plate_width - feet_connectors_size[0] - feet_connectors_margin[1], 0, 0])
-        square(feet_connectors_size);
+    translate([feet_connectors_margin[3], 0, 0]){
+	    square(feet_connectors_size);
+		if(dogbone==true){
+			translate([dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([feet_connectors_size[0] - dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([dogbone_offset,feet_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
+			translate([feet_connectors_size[0] - dogbone_offset,feet_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
+			}
+	}
+    
+    translate([(horizontal_plate_width - feet_connectors_size[0]) / 2, 0, 0]){
+		square(feet_connectors_size);
+		if(dogbone==true){
+			translate([dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([feet_connectors_size[0] - dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([dogbone_offset,feet_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
+			translate([feet_connectors_size[0] - dogbone_offset,feet_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
+			}
+	}
+        
+    translate([horizontal_plate_width - feet_connectors_size[0] - feet_connectors_margin[1], 0, 0]){
+		square(feet_connectors_size);
+		if(dogbone==true){
+			translate([dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([feet_connectors_size[0] - dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([dogbone_offset,feet_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
+			translate([feet_connectors_size[0] - dogbone_offset,feet_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
+			}
+	}
     // feet screws holes
     center        = horizontal_plate_width / 2;
     half_pocket   = feet_connectors_size[0] / 2;
@@ -101,20 +124,43 @@ module triangle_connectors_holes() {
     margin_top = horizontal_plate_height - triangle_connectors_size[1] - triangle_connectors_margin[0];
     translate([triangle_connectors_margin[3], margin_top, 0]) {
         square(triangle_connectors_size);
+		if(dogbone==true){
+			translate([dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([triangle_connectors_size[0] - dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([dogbone_offset,triangle_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
+			translate([triangle_connectors_size[0] - dogbone_offset,triangle_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
+			}
         triangle_screws_holes();
     }
     translate([horizontal_plate_width - triangle_connectors_size[0] - triangle_connectors_margin[1], margin_top, 0]) {
         square(triangle_connectors_size);
+		if(dogbone==true){
+			translate([dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([triangle_connectors_size[0] - dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([dogbone_offset,triangle_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
+			translate([triangle_connectors_size[0] - dogbone_offset,triangle_connectors_size[1] - dogbone_offset,0]) circle(r=cutter_size);
+			}
         triangle_screws_holes();
     }
 }
 
 // vertical plate connectors holes
 module vertical_plate_holes() {
-    translate([0, vertical_plate_y_position, 0])
-        square([foot_width, sheet_thickness]);
-    translate([horizontal_plate_width - foot_width, vertical_plate_y_position, 0])
-        square([foot_width, sheet_thickness]);
+    translate([0, vertical_plate_y_position, 0]){
+		square([foot_width, sheet_thickness]);
+		if(dogbone==true){
+			translate([foot_width - dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([foot_width - dogbone_offset,sheet_thickness - dogbone_offset,0]) circle(r=cutter_size);
+			}
+	}
+        
+    translate([horizontal_plate_width - foot_width, vertical_plate_y_position, 0]){
+		square([foot_width, sheet_thickness]);
+		if(dogbone==true){
+			translate([dogbone_offset,dogbone_offset,0]) circle(r=cutter_size);
+			translate([dogbone_offset,sheet_thickness - dogbone_offset,0]) circle(r=cutter_size);
+			}
+	}
 }
 
 // motor mount & z rod pockets
